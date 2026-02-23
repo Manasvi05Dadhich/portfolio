@@ -4,64 +4,58 @@ import {
 } from 'react-icons/fa';
 import {
     SiMongodb, SiExpress, SiSolidity, SiJavascript, SiTypescript,
-    SiTailwindcss, SiNextdotjs, SiWeb3Dotjs, SiVercel, SiGithub
+    SiTailwindcss, SiNextdotjs, SiWeb3Dotjs, SiVercel, SiGithub,
+    SiFlutter, SiDart, SiFirebase, SiShadcnui
 } from 'react-icons/si';
 import './Skills.css';
 
-const skillCategories = [
-    {
-        title: 'Frontend',
-        skills: [
-            { name: 'React', icon: <FaReact /> },
-            { name: 'Next.js', icon: <SiNextdotjs /> },
-            { name: 'JavaScript', icon: <SiJavascript /> },
-            { name: 'TypeScript', icon: <SiTypescript /> },
-            { name: 'HTML5', icon: <FaHtml5 /> },
-            { name: 'CSS3', icon: <FaCss3Alt /> },
-            { name: 'Tailwind', icon: <SiTailwindcss /> },
-        ],
-    },
-    {
-        title: 'Backend',
-        skills: [
-            { name: 'Node.js', icon: <FaNodeJs /> },
-            { name: 'Express', icon: <SiExpress /> },
-            { name: 'MongoDB', icon: <SiMongodb /> },
-        ],
-    },
-    {
-        title: 'Blockchain',
-        skills: [
-            { name: 'Solidity', icon: <SiSolidity /> },
-            { name: 'Ethereum', icon: <FaEthereum /> },
-            { name: 'Foundry', icon: <FaEthereum /> },
-            { name: 'Web3.js', icon: <SiWeb3Dotjs /> },
-        ],
-    },
-    {
-        title: 'Tools',
-        skills: [
-            { name: 'Git', icon: <FaGitAlt /> },
-            { name: 'GitHub', icon: <SiGithub /> },
-            { name: 'Docker', icon: <FaDocker /> },
-            { name: 'Vercel', icon: <SiVercel /> },
-        ],
-    },
+const row1 = [
+    { name: 'React', icon: <FaReact /> },
+    { name: 'Next.js', icon: <SiNextdotjs /> },
+    { name: 'JavaScript', icon: <SiJavascript /> },
+    { name: 'TypeScript', icon: <SiTypescript /> },
+    { name: 'HTML5', icon: <FaHtml5 /> },
+    { name: 'CSS3', icon: <FaCss3Alt /> },
+    { name: 'Tailwind', icon: <SiTailwindcss /> },
+    { name: 'shadcn/ui', icon: <SiShadcnui /> },
+    { name: 'Node.js', icon: <FaNodeJs /> },
+    { name: 'Express', icon: <SiExpress /> },
+    { name: 'Firebase', icon: <SiFirebase /> },
 ];
 
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.15,
-        },
-    },
+const row2 = [
+    { name: 'MongoDB', icon: <SiMongodb /> },
+    { name: 'Solidity', icon: <SiSolidity /> },
+    { name: 'Ethereum', icon: <FaEthereum /> },
+    { name: 'Foundry', icon: <FaEthereum /> },
+    { name: 'Web3.js', icon: <SiWeb3Dotjs /> },
+    { name: 'Ethers.js', icon: <FaEthereum /> },
+    { name: 'Flutter', icon: <SiFlutter /> },
+    { name: 'Dart', icon: <SiDart /> },
+    { name: 'Git', icon: <FaGitAlt /> },
+    { name: 'GitHub', icon: <SiGithub /> },
+    { name: 'Docker', icon: <FaDocker /> },
+    { name: 'Vercel', icon: <SiVercel /> },
+];
+
+const MarqueeRow = ({ items, direction = 'left' }) => {
+    const doubled = [...items, ...items];
+
+    return (
+        <div className="marquee__track">
+            <div className={`marquee__inner marquee__inner--${direction}`}>
+                {doubled.map((skill, i) => (
+                    <div key={`${skill.name}-${i}`} className="marquee__chip">
+                        <span className="marquee__icon">{skill.icon}</span>
+                        <span className="marquee__name">{skill.name}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 };
 
-const categoryVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+
 
 const Skills = () => {
     return (
@@ -76,33 +70,18 @@ const Skills = () => {
                 >
                     Skills & Tech
                 </motion.h2>
-
-                <motion.div
-                    className="skills__grid"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: '-100px' }}
-                >
-                    {skillCategories.map((category) => (
-                        <motion.div
-                            key={category.title}
-                            className="skills__category"
-                            variants={categoryVariants}
-                        >
-                            <h3 className="skills__category-title">{category.title}</h3>
-                            <div className="skills__list">
-                                {category.skills.map((skill) => (
-                                    <div key={skill.name} className="skills__item">
-                                        <span className="skills__icon">{skill.icon}</span>
-                                        <span className="skills__name">{skill.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
             </div>
+
+            <motion.div
+                className="marquee__container"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+            >
+                <MarqueeRow items={row1} direction="left" />
+                <MarqueeRow items={row2} direction="right" />
+            </motion.div>
         </section>
     );
 };

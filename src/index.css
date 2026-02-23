@@ -17,38 +17,37 @@
   --hero-name-glow1: rgba(255, 255, 255, 0.2);
   --hero-name-glow2: rgba(255, 255, 255, 0.1);
 
-  /* Fonts */
+
   --font-pixel: 'Press Start 2P', monospace;
   --font-mono: 'Space Mono', monospace;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Spacing */
   --section-padding: 100px 0;
   --container-width: 1200px;
   --container-padding: 0 24px;
 
-  /* Transitions */
+
   --transition-fast: 0.2s ease;
   --transition-medium: 0.3s ease;
   --transition-slow: 0.5s ease;
 
-  /* Glassmorphism */
+
   --glass-bg: rgba(10, 10, 10, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: 12px;
 
-  /* Mobile nav */
+
   --mobile-nav-bg: rgba(10, 10, 10, 0.95);
 }
 
-/* Light theme overrides */
+
 [data-theme="light"] {
   --color-bg: #f5f5f5;
   --color-bg-secondary: #ebebeb;
   --color-bg-card: #ffffff;
   --color-accent: #8b5cf6;
   --color-accent-hover: #a78bfa;
-  --color-accent-glow: rgba(139, 92, 246, 0.2);
+  --color-accent-glow: rgba(140, 102, 230, 0.258);
   --color-accent-subtle: rgba(177, 158, 239, 0.08);
   --color-accent-border: rgba(177, 158, 239, 0.25);
   --color-text-primary: #1a1a1a;
