@@ -1,0 +1,143 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: all var(--transition-medium);
+}
+
+.header--scrolled {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    padding: 10px 0;
+}
+
+.header__container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+    user-select: none;
+}
+
+.header__logo:hover {
+    transform: scale(1.1);
+    color: var(--color-accent);
+}
+
+.header__logo-dot {
+    color: var(--color-text-primary);
+}
+
+/* Desktop nav */
+.header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    user-select: none;
+}
+
+.header__nav-link:hover {
+    color: var(--color-accent);
+    background: rgba(230, 103, 0, 0.08);
+}
+
+.header__nav-link--active {
+    color: var(--color-accent);
+}
+
+.header__nav-link--active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 50%;
+}
+
+.header__nav-link--blog {
+    color: var(--color-accent);
+    border: 1px solid rgba(230, 103, 0, 0.3);
+}
+
+.header__nav-link--blog:hover {
+    background: rgba(230, 103, 0, 0.15);
+    border-color: var(--color-accent);
+}
+
+/* Hamburger */
+.header__hamburger {
+    display: none;
+    color: var(--color-text-primary);
+    padding: 8px;
+    z-index: 1001;
+}
+
+.header__hamburger:hover {
+    color: var(--color-accent);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header__hamburger {
+        display: block;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: right var(--transition-medium);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid var(--glass-border);
+    }
+
+    .header__nav--open {
+        right: 0;
+    }
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .header__nav-link {
+        font-size: 0.9rem;
+        padding: 12px 24px;
+    }
+}
