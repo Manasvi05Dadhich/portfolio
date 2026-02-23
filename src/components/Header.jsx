@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
 import './Header.css';
 
 const navLinks = [
@@ -16,12 +17,12 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
 
-            // Update active section based on scroll position
             const sections = navLinks.map(link => document.getElementById(link.id));
             const scrollPos = window.scrollY + window.innerHeight / 3;
 
@@ -85,13 +86,23 @@ const Header = () => {
                     </ul>
                 </nav>
 
-                <button
-                    className="header__hamburger"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle navigation"
-                >
-                    {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-                </button>
+                <div className="header__actions">
+                    <button
+                        className="header__theme-toggle"
+                        onClick={toggleTheme}
+                        aria-label="Toggle theme"
+                    >
+                        {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+                    </button>
+
+                    <button
+                        className="header__hamburger"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle navigation"
+                    >
+                        {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                    </button>
+                </div>
             </div>
         </header>
     );

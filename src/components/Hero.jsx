@@ -1,17 +1,22 @@
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 import PixelBlast from './PixelBlast';
 import './Hero.css';
 
 const Hero = () => {
+    const { theme } = useTheme();
+    const pixelColor = theme === 'dark' ? '#e66700' : '#b19eef';
+
     return (
         <section id="hero" className="hero">
             {/* PixelBlast Background */}
             <div className="hero__bg">
                 <PixelBlast
+                    key={theme}
                     variant="square"
                     pixelSize={4}
-                    color="#e66700"
+                    color={pixelColor}
                     patternScale={2}
                     patternDensity={1}
                     pixelSizeJitter={0}

@@ -46,7 +46,7 @@
 .skills__item:hover {
     border-color: var(--color-accent);
     transform: translateY(-2px);
-    background: rgba(230, 103, 0, 0.05);
+    background: var(--color-accent-subtle);
 }
 
 .skills__icon {
