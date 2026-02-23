@@ -65,6 +65,8 @@ const Hero = () => {
                                 2000,
                                 'Smart Contract Engineer',
                                 2000,
+                                'App Developer',
+                                2000,
                                 'Full-Stack Builder',
                                 2000,
                             ]}

@@ -1,0 +1,101 @@
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.projects__card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.projects__card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px var(--color-accent-glow);
+}
+
+.projects__card:hover::before {
+    opacity: 1;
+}
+
+.projects__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.projects__title {
+    font-family: var(--font-pixel);
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+}
+
+.projects__links {
+    display: flex;
+    gap: 12px;
+}
+
+.projects__link {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+}
+
+.projects__link:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.projects__description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    flex-grow: 1;
+}
+
+.projects__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.projects__tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    background: rgba(230, 103, 0, 0.08);
+    border: 1px solid rgba(230, 103, 0, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+}

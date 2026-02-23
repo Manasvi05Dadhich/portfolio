@@ -47,12 +47,12 @@
 .hero__name {
     font-family: var(--font-pixel);
     font-size: clamp(3rem, 10vw, 8rem);
-    color: var(--color-accent);
+    color: #ffffff;
     line-height: 1;
     margin-bottom: 24px;
     text-shadow:
-        0 0 40px rgba(230, 103, 0, 0.3),
-        0 0 80px rgba(230, 103, 0, 0.15);
+        0 0 40px rgba(255, 255, 255, 0.2),
+        0 0 80px rgba(255, 255, 255, 0.1);
     letter-spacing: 4px;
 }
 
@@ -72,8 +72,8 @@
 }
 
 .hero__typewriter-text {
-    color: var(--color-accent);
-    border-right: 2px solid var(--color-accent);
+    color: #ffffff;
+    border-right: 2px solid #ffffff;
     padding-right: 4px;
 }
 

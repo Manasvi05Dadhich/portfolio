@@ -1,20 +1,21 @@
-/* ============================================
-   DESIGN TOKENS & GLOBAL STYLES
-   ============================================ */
-
 :root {
-  /* Colors */
+  /* Dark theme (default) */
   --color-bg: #0a0a0a;
   --color-bg-secondary: #111111;
   --color-bg-card: #1a1a1a;
   --color-accent: #e66700;
   --color-accent-hover: #ff7a1a;
   --color-accent-glow: rgba(230, 103, 0, 0.3);
+  --color-accent-subtle: rgba(230, 103, 0, 0.08);
+  --color-accent-border: rgba(230, 103, 0, 0.2);
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #a0a0a0;
   --color-text-muted: #666666;
   --color-border: #2a2a2a;
   --color-border-hover: #3a3a3a;
+  --hero-name-color: #ffffff;
+  --hero-name-glow1: rgba(255, 255, 255, 0.2);
+  --hero-name-glow2: rgba(255, 255, 255, 0.1);
 
   /* Fonts */
   --font-pixel: 'Press Start 2P', monospace;
@@ -35,6 +36,34 @@
   --glass-bg: rgba(10, 10, 10, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: 12px;
+
+  /* Mobile nav */
+  --mobile-nav-bg: rgba(10, 10, 10, 0.95);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-bg: #f5f5f5;
+  --color-bg-secondary: #ebebeb;
+  --color-bg-card: #ffffff;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-glow: rgba(124, 58, 237, 0.2);
+  --color-accent-subtle: rgba(124, 58, 237, 0.06);
+  --color-accent-border: rgba(124, 58, 237, 0.2);
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted: #999999;
+  --color-border: #e0e0e0;
+  --color-border-hover: #cccccc;
+  --hero-name-color: #1a1a1a;
+  --hero-name-glow1: rgba(124, 58, 237, 0.2);
+  --hero-name-glow2: rgba(124, 58, 237, 0.1);
+
+  --glass-bg: rgba(245, 245, 245, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.06);
+
+  --mobile-nav-bg: rgba(245, 245, 245, 0.95);
 }
 
 /* Reset */
@@ -59,6 +88,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color var(--transition-medium), color var(--transition-medium);
 }
 
 /* Scrollbar */
