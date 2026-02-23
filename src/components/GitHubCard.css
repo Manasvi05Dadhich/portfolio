@@ -1,0 +1,21 @@
+.github__calendar {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 32px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    transition: all var(--transition-medium);
+}
+
+.github__calendar:hover {
+    box-shadow: 0 4px 20px var(--color-accent-glow);
+}
+
+.github__loading {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    padding: 40px 0;
+}

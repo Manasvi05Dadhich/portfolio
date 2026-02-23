@@ -8,6 +8,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
+import GitHubCard from './components/githubcard';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Experience />
         <Education />
         <Contact />
+        <GitHubCard />
       </main>
       <Footer />
     </div>
