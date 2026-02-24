@@ -5,19 +5,14 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState(() => {
-        const saved = localStorage.getItem('portfolio-theme');
-        return saved || 'dark';
-    });
+    const [theme] = useState('dark');
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('portfolio-theme', theme);
-    }, [theme]);
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('portfolio-theme', 'dark');
+    }, []);
 
-    const toggleTheme = () => {
-        setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
-    };
+    const toggleTheme = () => { };
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>

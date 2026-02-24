@@ -46,8 +46,8 @@ const GitHubCard = () => {
     }, []);
 
     const calendarTheme = {
-        dark: ['#3a3838ff', '#4d2600', '#804000', '#b35900', '#e66700'],
-        light: ['#d9d9d9', '#ad95e1ff', '#927dd8ff', '#8b5cf6', '#7c3aed'],
+        dark: ['#1a1f1a', '#2d4a2a', '#4a7a44', '#72b568', '#A7EF9E'],
+        light: ['#d9d9d9', '#a8e6a0', '#7dd87a', '#4caf50', '#2e7d32'],
     };
 
     return (
