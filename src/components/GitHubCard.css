@@ -20,3 +20,18 @@
     color: var(--color-text-muted);
     padding: 40px 0;
 }
+
+@media (max-width: 768px) {
+    .github__calendar {
+        padding: 20px 16px;
+        border-radius: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 480px) {
+    .github__calendar {
+        padding: 16px 12px;
+        border-radius: 8px;
+    }
+}

@@ -152,6 +152,16 @@
         padding: 0 24px;
     }
 
+    .hero__line {
+        font-size: 0.9rem;
+        padding: 3px 10px;
+    }
+
+    .hero__value,
+    .hero__value--typed {
+        font-size: 1rem;
+    }
+
     .hero__scroll-indicator {
         left: 24px;
         bottom: 24px;
@@ -168,10 +178,20 @@
     }
 
     .hero__terminal {
-        gap: 8px;
+        gap: 4px;
     }
 
     .hero__line {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    .hero__value,
+    .hero__value--typed {
         font-size: 0.85rem;
+    }
+
+    .hero__line--ready {
+        font-size: 0.9rem;
     }
 }

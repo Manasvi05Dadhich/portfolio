@@ -96,3 +96,37 @@
     background-size: cover;
     background-position: 50% 50%;
 }
+
+@media (max-width: 768px) {
+    .menu__item-link {
+        font-size: 3vh;
+    }
+
+    .marquee span {
+        font-size: 3vh;
+    }
+
+    .marquee__img {
+        width: 120px;
+        height: 5vh;
+        margin: 1em 1vw;
+        border-radius: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu__item-link {
+        font-size: 2.5vh;
+    }
+
+    .marquee span {
+        font-size: 2.5vh;
+    }
+
+    .marquee__img {
+        width: 80px;
+        height: 4vh;
+        margin: 0.8em 1vw;
+        border-radius: 20px;
+    }
+}

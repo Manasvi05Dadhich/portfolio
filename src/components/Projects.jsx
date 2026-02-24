@@ -23,7 +23,7 @@ const Projects = () => {
                     Projects
                 </motion.h2>
 
-                <div style={{ height: '600px', position: 'relative' }}>
+                <div className="projects__flowing-menu-wrapper">
                     <FlowingMenu
                         items={demoItems}
                         speed={15}

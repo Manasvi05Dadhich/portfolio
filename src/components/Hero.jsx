@@ -24,7 +24,7 @@ const getTimeString = () => {
     return `${day} ${month} ${year} | ${String(hours).padStart(2, '0')}:${minutes} ${ampm} IST`;
 };
 
-const CHAR_SPEED = 35; // ms per character
+const CHAR_SPEED = 35;
 
 function TypingLine({ text, onDone, className, children }) {
     const [displayed, setDisplayed] = useState('');

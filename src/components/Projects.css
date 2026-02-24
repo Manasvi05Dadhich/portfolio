@@ -1,3 +1,8 @@
+.projects__flowing-menu-wrapper {
+    height: 600px;
+    position: relative;
+}
+
 .projects__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -95,7 +100,21 @@
 }
 
 @media (max-width: 768px) {
+    .projects__flowing-menu-wrapper {
+        height: 400px;
+    }
+
     .projects__grid {
         grid-template-columns: 1fr;
+    }
+
+    .projects__card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects__flowing-menu-wrapper {
+        height: 300px;
     }
 }

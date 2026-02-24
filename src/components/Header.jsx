@@ -95,7 +95,7 @@ const Header = () => {
                         <li>
                             <a
                                 className="header__nav-link header__nav-link--blog"
-                                href="#"
+                                href="https://medium.com/@manasvidadhich05"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -106,14 +106,6 @@ const Header = () => {
                 </nav>
 
                 <div className="header__actions">
-                    <button
-                        className="header__theme-toggle"
-                        onClick={toggleTheme}
-                        aria-label="Toggle theme"
-                    >
-                        {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
-                    </button>
-
                     <button
                         className="header__hamburger"
                         onClick={() => setIsOpen(!isOpen)}
