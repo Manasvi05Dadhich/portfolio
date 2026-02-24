@@ -1,26 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
 :root {
   /* Dark theme (default) */
-  --color-bg: #0a0a0a;
-  --color-bg-secondary: #111111;
-  --color-bg-card: #1a1a1a;
-  --color-accent: #e66700;
-  --color-accent-hover: #ff7a1a;
-  --color-accent-glow: rgba(230, 103, 0, 0.3);
-  --color-accent-subtle: rgba(230, 103, 0, 0.08);
-  --color-accent-border: rgba(230, 103, 0, 0.2);
-  --color-text-primary: #f0f0f0;
-  --color-text-secondary: #a0a0a0;
-  --color-text-muted: #666666;
-  --color-border: #2a2a2a;
-  --color-border-hover: #3a3a3a;
+  --color-bg: #0f0e0a;
+  --color-bg-secondary: #1a1815;
+  --color-bg-card: #18161a;
+  --color-accent: #A7EF9E;
+  --color-accent-hover: #c0f5b9;
+  --color-accent-glow: rgba(167, 239, 158, 0.25);
+  --color-accent-subtle: rgba(167, 239, 158, 0.08);
+  --color-accent-border: rgba(167, 239, 158, 0.2);
+  --color-text-primary: #f5f1ed;
+  --color-text-secondary: #b8b3b0;
+  --color-text-muted: #7a7370;
+  --color-border: #2a2824;
+  --color-border-hover: #3a3530;
   --hero-name-color: #ffffff;
-  --hero-name-glow1: rgba(255, 255, 255, 0.2);
-  --hero-name-glow2: rgba(255, 255, 255, 0.1);
+  --hero-name-glow1: rgba(167, 239, 158, 0.3);
+  --hero-name-glow2: rgba(167, 239, 158, 0.15);
 
 
-  --font-pixel: 'Press Start 2P', monospace;
-  --font-mono: 'Space Mono', monospace;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pixel: 'Space Grotesk', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --section-padding: 100px 0;
   --container-width: 1200px;
@@ -42,27 +44,27 @@
 
 
 [data-theme="light"] {
-  --color-bg: #f5f5f5;
-  --color-bg-secondary: #ebebeb;
+  --color-bg: #faf9f6;
+  --color-bg-secondary: #efe9e1;
   --color-bg-card: #ffffff;
-  --color-accent: #8b5cf6;
-  --color-accent-hover: #a78bfa;
-  --color-accent-glow: rgba(140, 102, 230, 0.258);
-  --color-accent-subtle: rgba(177, 158, 239, 0.08);
-  --color-accent-border: rgba(177, 158, 239, 0.25);
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #555555;
-  --color-text-muted: #999999;
-  --color-border: #e0e0e0;
-  --color-border-hover: #cccccc;
-  --hero-name-color: #1a1a1a;
-  --hero-name-glow1: rgba(139, 92, 246, 0.2);
-  --hero-name-glow2: rgba(177, 158, 239, 0.1);
+  --color-accent: #b8860b;
+  --color-accent-hover: #d4a574;
+  --color-accent-glow: rgba(184, 134, 11, 0.15);
+  --color-accent-subtle: rgba(184, 134, 11, 0.08);
+  --color-accent-border: rgba(184, 134, 11, 0.2);
+  --color-text-primary: #2a2520;
+  --color-text-secondary: #5a4f4a;
+  --color-text-muted: #8a7f7a;
+  --color-border: #ddd2c9;
+  --color-border-hover: #ccc1b8;
+  --hero-name-color: #2a2520;
+  --hero-name-glow1: rgba(184, 134, 11, 0.2);
+  --hero-name-glow2: rgba(184, 134, 11, 0.1);
 
-  --glass-bg: rgba(245, 245, 245, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(250, 249, 246, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
 
-  --mobile-nav-bg: rgba(245, 245, 245, 0.95);
+  --mobile-nav-bg: rgba(250, 249, 246, 0.98);
 }
 
 /* Reset */

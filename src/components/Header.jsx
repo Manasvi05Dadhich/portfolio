@@ -17,7 +17,22 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
+    const [time, setTime] = useState('');
     const { theme, toggleTheme } = useTheme();
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            setTime(`${hours}:${minutes}:${seconds}`);
+        };
+
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,6 +73,10 @@ const Header = () => {
                 >
                     M<span className="header__logo-dot">.</span>
                 </a>
+
+                <div className="header__time">
+                    {time}
+                </div>
 
                 <nav className={`header__nav ${isOpen ? 'header__nav--open' : ''}`}>
                     <ul className="header__nav-list">
@@ -107,5 +126,4 @@ const Header = () => {
         </header>
     );
 };
-
 export default Header;

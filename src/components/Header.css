@@ -23,6 +23,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.header__time {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
 }
 
 .header__logo {

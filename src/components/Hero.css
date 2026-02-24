@@ -32,49 +32,70 @@
     pointer-events: none;
 }
 
-.hero__text {
+/* Terminal block */
+.hero__terminal {
     pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.hero__greeting {
+.hero__line {
     font-family: var(--font-mono);
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    color: var(--color-text-secondary);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-}
-
-.hero__name {
-    font-family: var(--font-pixel);
-    font-size: clamp(3rem, 10vw, 8rem);
-    color: var(--hero-name-color);
-    line-height: 1;
-    margin-bottom: 24px;
-    text-shadow:
-        0 0 40px var(--hero-name-glow1),
-        0 0 80px var(--hero-name-glow2);
-    letter-spacing: 4px;
-}
-
-.hero__typewriter {
-    font-family: var(--font-mono);
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    color: var(--color-text-primary);
+    font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
     display: flex;
     align-items: center;
-    gap: 0;
     flex-wrap: wrap;
+    text-shadow: 0 0 10px rgba(15, 14, 10, 1), 0 0 20px rgba(15, 14, 10, 1), 0 0 40px rgba(15, 14, 10, 0.8);
 }
 
-.hero__typewriter-prefix {
+
+.hero__line--highlight {
     color: var(--color-text-secondary);
-    margin-right: 8px;
 }
 
-.hero__typewriter-text {
+.hero__value {
     color: var(--hero-name-color);
-    border-right: 2px solid var(--hero-name-color);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+}
+
+.hero__value--typed {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    border-right: 2px solid var(--color-accent);
     padding-right: 4px;
+}
+
+.hero__value--dim {
+    color: var(--color-text-secondary);
+}
+
+.hero__line--ready {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin-top: 6px;
+}
+
+.hero__cursor {
+    animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Scroll indicator */
@@ -128,10 +149,6 @@
         padding: 0 24px;
     }
 
-    .hero__name {
-        letter-spacing: 2px;
-    }
-
     .hero__scroll-indicator {
         left: 24px;
         bottom: 24px;
@@ -147,11 +164,11 @@
         padding: 0 16px;
     }
 
-    .hero__greeting {
-        font-size: 0.8rem;
+    .hero__terminal {
+        gap: 8px;
     }
 
-    .hero__typewriter {
-        font-size: 0.9rem;
+    .hero__line {
+        font-size: 0.85rem;
     }
 }
