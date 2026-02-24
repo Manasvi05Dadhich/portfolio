@@ -3,10 +3,10 @@ import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUpRight } from 'react-i
 import './Contact.css';
 
 const socials = [
-    { name: 'GitHub', icon: <FiGithub />, url: '#', handle: '@manasvi' },
-    { name: 'LinkedIn', icon: <FiLinkedin />, url: '#', handle: '/in/manasvi' },
-    { name: 'Twitter', icon: <FiTwitter />, url: '#', handle: '@manasvi' },
-    { name: 'Email', icon: <FiMail />, url: 'mailto:your@email.com', handle: 'your@email.com' },
+    { name: 'GitHub', icon: <FiGithub />, url: 'https://github.com/Manasvi05Dadhich', handle: 'Manasvi05Dadhich' },
+    { name: 'LinkedIn', icon: <FiLinkedin />, url: 'https://www.linkedin.com/in/manasvi-dadhich-4435ab279/', handle: '/in/manasvi-dadhich' },
+    { name: 'Twitter', icon: <FiTwitter />, url: 'https://x.com/manasvi_dadhich', handle: '@manasvi_dadhich' },
+    { name: 'Email', icon: <FiMail />, url: 'mailto:manasvidadhich05@gmail.com', handle: 'manasvidadhich05@gmail.com' },
 ];
 
 const Contact = () => {
