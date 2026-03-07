@@ -3,10 +3,11 @@ import FlowingMenu from './FlowingMenu';
 import './Projects.css';
 
 const demoItems = [
-    { link: '#', text: 'Mojave', image: 'https://picsum.photos/600/400?random=1' },
-    { link: '#', text: 'Sonoma', image: 'https://picsum.photos/600/400?random=2' },
-    { link: '#', text: 'Monterey', image: 'https://picsum.photos/600/400?random=3' },
-    { link: '#', text: 'Sequoia', image: 'https://picsum.photos/600/400?random=4' }
+    { link: 'https://github.com/Manasvi05Dadhich/skillchain', text: 'SkillChain', image: 'https://picsum.photos/600/400?random=1' },
+    { link: 'https://github.com/Manasvi05Dadhich/zerosync-backend', text: 'ZeroSync', image: 'https://picsum.photos/600/400?random=2' },
+    { link: 'https://github.com/Manasvi05Dadhich/SnapSync', text: 'SnapSync', image: 'https://picsum.photos/600/400?random=3' },
+    { link: 'https://github.com/Manasvi05Dadhich/OneWipe', text: 'OneWipe', image: 'https://picsum.photos/600/400?random=4' },
+    { link: 'https://github.com/Manasvi05Dadhich/StabilityNet', text: 'StabilityNet', image: 'https://picsum.photos/600/400?random=5' }
 ];
 
 const Projects = () => {

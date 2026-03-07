@@ -24,40 +24,11 @@ const About = () => {
                         viewport={{ once: true, margin: '-100px' }}
                     >
                         <p className="about__intro">
-                            I&apos;m a <span className="about__highlight">Full-Stack Blockchain Developer</span> passionate
-                            about building decentralized applications and modern web experiences.
+                            I&apos;m a <span className="about__highlight">Web3-focused Full Stack Developer</span>, <span className="about__highlight">mobile dev</span>, and <span className="about__highlight">video editor</span> who loves building things that actually matter.
                         </p>
                         <p className="about__description">
-                            With expertise spanning the entire MERN stack and the Ethereum ecosystem,
-                            I bridge the gap between traditional web development and Web3. From crafting
-                            intuitive user interfaces to writing secure smart contracts in Solidity,
-                            I bring ideas to life on-chain and off-chain.
+                            With 2+ hackathon wins under my belt, I enjoy bridging Web2 and Web3  whether it&apos;s shipping a full-stack app, crafting a mobile experience, or editing a killer demo video. Currently looking for internships to keep learning and building.
                         </p>
-                        <p className="about__description">
-                            I love exploring new technologies, contributing to open-source projects,
-                            and building tools that push the boundaries of what&apos;s possible on the blockchain.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        className="about__stats"
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        viewport={{ once: true, margin: '-100px' }}
-                    >
-                        <div className="about__stat">
-                            <span className="about__stat-number">10+</span>
-                            <span className="about__stat-label">Projects Built</span>
-                        </div>
-                        <div className="about__stat">
-                            <span className="about__stat-number">5+</span>
-                            <span className="about__stat-label">Smart Contracts</span>
-                        </div>
-                        <div className="about__stat">
-                            <span className="about__stat-number">2+</span>
-                            <span className="about__stat-label">Years Experience</span>
-                        </div>
                     </motion.div>
                 </div>
             </div>

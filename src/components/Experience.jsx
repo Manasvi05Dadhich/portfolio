@@ -3,25 +3,25 @@ import './Experience.css';
 
 const experiences = [
     {
-        role: 'Blockchain Developer',
-        company: 'Your Company',
-        period: '2024 — Present',
-        description: 'Developing smart contracts and dApps on Ethereum. Building DeFi protocols with Solidity and Foundry. Integrating on-chain data with React frontends.',
-        tech: ['Solidity', 'Foundry', 'React', 'Ethers.js'],
+        role: 'Blockchain Developer Fellow',
+        company: 'Dev3pack',
+        period: 'jan 2025 — present',
+        description: 'Developing smart contracts and dApps on Ethereum. Building DeFi protocols with Solidity and Foundry. Integrating on-chain data with React frontends.uniswap, base protocol, and more.',
+        tech: ['Solidity', 'Foundry', 'React', 'Ethers.js', 'Uniswap SDK'],
     },
     {
-        role: 'Full-Stack Developer',
-        company: 'Your Company',
-        period: '2023 — 2024',
-        description: 'Built scalable web applications using the MERN stack. Designed RESTful APIs, implemented authentication systems, and optimized database queries.',
-        tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-    },
-    {
-        role: 'Freelance Developer',
+        role: 'Freelance Flutter Developer',
         company: 'Self-Employed',
-        period: '2022 — 2023',
-        description: 'Delivered custom web solutions for clients. Built responsive websites, e-commerce platforms, and integrated third-party APIs.',
-        tech: ['JavaScript', 'React', 'CSS', 'Firebase'],
+        period: 'Nov 2025 — Jan 2025',
+        description: 'built a cross-platform mobile app for a local business. Implemented responsive UI, integrated Firebase for backend services, and deployed to Android.',
+        tech: ['Flutter', 'Dart', 'Firebase', 'Android'],
+    },
+    {
+        role: 'Freelance Flutter Developer',
+        company: 'Self-Employed',
+        period: 'Oct 2024 — Nov 2024',
+        description: 'Worked on a cross-platform mobile app for a local business. Implemented responsive UI, integrated Firebase for backend services, and deployed to Android.',
+        tech: ['Flutter', 'Dart', 'Firebase', 'Android'],
     },
 ];
 

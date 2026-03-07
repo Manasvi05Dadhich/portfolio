@@ -1,8 +1,7 @@
 .about__content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
-    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .about__intro {

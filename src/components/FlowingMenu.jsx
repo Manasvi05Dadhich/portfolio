@@ -140,6 +140,8 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
             <a
                 className="menu__item-link"
                 href={link}
+                target="_blank"
+                rel="noopener noreferrer"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 style={{ color: textColor }}

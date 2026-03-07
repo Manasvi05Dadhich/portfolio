@@ -1,6 +1,6 @@
 .education__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 24px;
     max-width: 900px;
     margin: 0 auto;
