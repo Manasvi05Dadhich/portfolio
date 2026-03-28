@@ -1,0 +1,245 @@
+<script>
+  const cd = document.getElementById('cd'), cr = document.getElementById('cr'), ctxt = document.getElementById('ctxt')
+  let mx = 0, my = 0, rx = 0, ry = 0
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY
+    cd.style.left = mx + 'px'; cd.style.top = my + 'px'
+    ctxt.style.left = mx + 'px'; ctxt.style.top = my + 'px'
+    resetIdle()
+  })
+    ; (function loop() { rx += (mx - rx) * .11; ry += (my - ry) * .11; cr.style.left = rx + 'px'; cr.style.top = ry + 'px'; requestAnimationFrame(loop) })()
+
+  window.addEventListener('scroll', () => {
+    const pr = document.getElementById('projects').getBoundingClientRect()
+    document.body.classList.toggle('on-dark', pr.top < window.innerHeight / 2 && pr.bottom > window.innerHeight / 2)
+  })
+
+  document.getElementById('termTrigger').addEventListener('mouseenter', () => { ctxt.textContent = 'open'; ctxt.style.opacity = '1' })
+  document.getElementById('termTrigger').addEventListener('mouseleave', () => { ctxt.style.opacity = '0' })
+  document.getElementById('coffeeBtn').addEventListener('mouseenter', () => { ctxt.textContent = 'click'; ctxt.style.opacity = '1' })
+  document.getElementById('coffeeBtn').addEventListener('mouseleave', () => { ctxt.style.opacity = '0' })
+
+  document.addEventListener('mousemove', e => {
+    const cx = window.innerWidth / 2, cy = window.innerHeight / 2, dx = (e.clientX - cx) / cx, dy = (e.clientY - cy) / cy
+    document.querySelectorAll('#hero .fo').forEach((el, i) => {
+      const s = (i % 3 + 1) * 4.5
+      el.style.transform = `translateX(${dx * s}px) translateY(${dy * s}px) rotate(${el.style.getPropertyValue('--r') || '0deg'})`
+    })
+  })
+
+  setTimeout(() => document.getElementById('boot').classList.add('out'), 3100)
+
+  let toastTimer
+  function showToast(msg) {
+    const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show')
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 3200)
+  }
+
+  let coffeeCount = 0
+  function coffeeClick() {
+    coffeeCount++
+    const msgs = ['coffee #1. entering focus mode.', 'coffee #2. the chain smells good.',
+      'coffee #3. still no bugs fixed.', 'coffee #4. you are the coffee now.',
+      'deploying caffeine to prod... again.', '☕×5: Overcaffeinated Dev — unlocked.']
+    showToast(msgs[Math.min(coffeeCount - 1, msgs.length - 1)])
+  }
+
+  const termLines = [
+    { t: 'tc', v: '$ whoami' }, { t: '', v: 'manasvi_dadhich — builder, web3 nerd' },
+    { t: 'tc', v: '$ cat stack.txt' }, { t: 'ta', v: 'React · Node · Solidity · Flutter · Noir · Redis' },
+    { t: 'tc', v: '$ git log --oneline -3' },
+    { t: 'tw', v: 'a3f9c12 feat: ship DarkEarn v1' }, { t: 'tw', v: 'b7d2e01 fix: 3am bug finally dead' }, { t: 'tw', v: 'c1a4f88 chore: more coffee' },
+    { t: 'tc', v: '$ cat fun_facts.txt' },
+    { t: '', v: '→ edits videos when not writing code' }, { t: '', v: '→ yoga keeps the commits clean' }, { t: '', v: '→ every idea starts on a sticky note' },
+    { t: 'tc', v: '$ echo $STATUS' }, { t: 'ta', v: 'OPEN_TO_WORK=true · COFFEE_LEVEL=max' },
+  ]
+  function openTerm() {
+    document.getElementById('termOv').classList.add('open')
+    const body = document.getElementById('termBody'); body.innerHTML = ''
+    termLines.forEach((l, i) => setTimeout(() => {
+      const s = document.createElement('span'); s.className = l.t; s.textContent = l.v
+      body.appendChild(s); body.appendChild(document.createElement('br')); body.scrollTop = body.scrollHeight
+    }, i * 85))
+  }
+  function closeTerm() { document.getElementById('termOv').classList.remove('open') }
+  document.getElementById('termTrigger').addEventListener('click', openTerm)
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTerm() })
+
+  const G = [
+    ['B', 'L', 'O', 'C', 'K', 'C', 'H', 'A', 'I', 'N'],
+    ['U', 'Q', 'R', 'O', 'P', '2', 'F', 'N', '7', 'M'],
+    ['I', 'Z', 'K', 'F', 'W', 'E', 'B', '3', 'X', 'J'],
+    ['L', 'P', 'T', 'F', 'V', 'H', 'S', 'Y', 'N', '8'],
+    ['D', '5', 'G', 'E', 'A', 'Y', 'O', 'G', 'A', 'C'],
+    ['E', 'W', 'N', 'E', '2', 'D', 'Q', 'R', '5', 'T'],
+    ['R', '1', 'M', 'O', 'B', 'I', 'L', 'E', 'P', '6'],
+    ['4', 'X', 'Q', '3', 'Z', 'K', '7', 'J', '2', 'V'],
+    ['T', 'S', 'A', 'N', 'I', 'M', 'E', '8', 'L', 'F'],
+    ['9', 'P', 'C', '5', 'K', '3', 'N', '7', 'X', 'Q'],
+    ['E', 'D', 'I', 'T', 'O', 'R', '2', 'M', '6', 'Y'],
+  ]
+  const hiWords = [
+    ...Array.from({ length: 10 }, (_, c) => [0, c]), ...Array.from({ length: 7 }, (_, r) => [r, 0]),
+    ...Array.from({ length: 6 }, (_, r) => [r, 3]), ...[4, 5, 6, 7].map(c => [2, c]),
+    ...[5, 6, 7, 8].map(c => [4, c]), ...[2, 3, 4, 5, 6, 7].map(c => [6, c]),
+    ...[2, 3, 4, 5, 6].map(c => [8, c]), ...[0, 1, 2, 3, 4, 5].map(c => [10, c]),
+  ]
+  const hiSet = new Set(hiWords.map(([r, c]) => `${r}-${c}`))
+  const tbl = document.getElementById('xwTable')
+  G.forEach((row, r) => {
+    const tr = document.createElement('tr')
+    row.forEach((cell, c) => {
+      const td = document.createElement('td'); td.textContent = cell
+      if (hiSet.has(`${r}-${c}`)) td.classList.add('hi')
+      tr.appendChild(td)
+    }); tbl.appendChild(tr)
+  })
+  function drawCircles() {
+    const svg = document.getElementById('xwSvg'), cw = 24, ch = 24, pad = 4
+    svg.setAttribute('width', tbl.offsetWidth); svg.setAttribute('height', tbl.offsetHeight)
+    svg.setAttribute('viewBox', `0 0 ${tbl.offsetWidth} ${tbl.offsetHeight}`)
+    const ws = [
+      { r: 0, c1: 0, c2: 9, h: true }, { r1: 0, r2: 6, c: 0, h: false }, { r1: 0, r2: 5, c: 3, h: false },
+      { r: 2, c1: 4, c2: 7, h: true }, { r: 4, c1: 5, c2: 8, h: true }, { r: 6, c1: 2, c2: 7, h: true },
+      { r: 8, c1: 2, c2: 6, h: true }, { r: 10, c1: 0, c2: 5, h: true },
+    ]
+    ws.forEach(w => {
+      const ell = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse')
+      let cx2, cy2, rx2, ry2
+      if (w.h) { cx2 = w.c1 * cw + ((w.c2 - w.c1 + 1) * cw) / 2; cy2 = w.r * ch + ch / 2; rx2 = (w.c2 - w.c1 + 1) * cw / 2 + pad; ry2 = ch / 2 + pad }
+      else { cx2 = w.c * cw + cw / 2; cy2 = w.r1 * ch + ((w.r2 - w.r1 + 1) * ch) / 2; rx2 = cw / 2 + pad; ry2 = (w.r2 - w.r1 + 1) * ch / 2 + pad }
+      ell.setAttribute('cx', cx2); ell.setAttribute('cy', cy2); ell.setAttribute('rx', rx2); ell.setAttribute('ry', ry2)
+      ell.setAttribute('fill', 'none'); ell.setAttribute('stroke', '#c85015')
+      ell.setAttribute('stroke-width', '1.6'); ell.setAttribute('opacity', '.65')
+      svg.appendChild(ell)
+    })
+  }
+  setTimeout(drawCircles, 400)
+
+  const projects = [
+    { n: '01', name: 'DarkEarn', stack: 'ZK · Stealth · Solidity · Base', dur: '4:48', link: '#' },
+    { n: '02', name: 'OneWipe Microservice', stack: 'Blockchain · Certs · React', dur: '3:12', link: '#' },
+    { n: '03', name: 'Snapsync', stack: 'React · Vite · Framer', dur: '2:47', link: '#' },
+    { n: '04', name: 'Web3 Starter Kit', stack: 'Hardhat · Wagmi · Next.js', dur: '3:31', link: '#' },
+    { n: '05', name: '???', stack: 'still building...', dur: '?:??', link: '#', secret: true },
+  ]
+  const tCont = document.getElementById('tracks')
+  projects.forEach((p, i) => {
+    const d = document.createElement('div'); d.className = 'track' + (p.secret ? ' secret' : '')
+    d.innerHTML = `<div class="track-n">${p.n}</div>
+    <div class="track-info"><div class="track-name">${p.name}</div><div class="track-stack">${p.stack}</div></div>
+    <a href="${p.link}" class="track-arr" onclick="event.stopPropagation()">↗</a>`
+    d.addEventListener('click', () => playTrack(i, p)); tCont.appendChild(d)
+  })
+  let progInterval = null, progSec = 0, progTotal = 0
+  const audioEl = document.getElementById('audioEl')
+  function playTrack(idx, p) {
+    document.querySelectorAll('.track').forEach(t => t.classList.remove('active'))
+    document.querySelectorAll('.track')[idx].classList.add('active')
+    if (p.secret) { showToast('this one ships when it ships.'); return }
+    document.getElementById('vinyl').classList.add('playing')
+    document.getElementById('vlTitle').textContent = p.name
+    if (audioEl.src && audioEl.src !== window.location.href) audioEl.play()
+    const pts = p.dur.split(':'); progTotal = parseInt(pts[0]) * 60 + parseInt(pts[1])
+    progSec = 0; document.getElementById('vt2').textContent = p.dur
+    clearInterval(progInterval)
+    progInterval = setInterval(() => {
+      progSec++; if (progSec >= progTotal) { clearInterval(progInterval); return }
+      document.getElementById('vpf').style.width = (progSec / progTotal * 100) + '%'
+      const m = Math.floor(progSec / 60), s = progSec % 60
+      document.getElementById('vt1').textContent = `${m}:${s.toString().padStart(2, '0')}`
+    }, 1000)
+  }
+  function loadAudio(e) {
+    const f = e.target.files[0]; if (!f) return
+    audioEl.src = URL.createObjectURL(f); audioEl.load()
+    document.getElementById('audioFname').textContent = f.name
+    showToast(`loaded: ${f.name} — click a project`)
+  }
+  document.getElementById('vinyl').addEventListener('click', () => {
+    if (audioEl.src && audioEl.src !== window.location.href) {
+      audioEl.paused ? audioEl.play() : audioEl.pause()
+      document.getElementById('vinyl').classList.toggle('playing', !audioEl.paused)
+    }
+  })
+
+  function makeBarcode(id) {
+    const el = document.getElementById(id); if (!el) return
+    const pat = [2, 1, 3, 1, 2, 1, 1, 2, 3, 1, 2, 2, 1, 1, 2, 3, 1, 1, 2, 2, 1, 3, 1, 2, 2, 1, 1, 2]
+    pat.forEach(() => {
+      const s = document.createElement('span')
+      const w = Math.floor(Math.random() * 2) + 1
+      const h = Math.floor(Math.random() * 10) + 16
+      s.style.cssText = `width:${w}px;height:${h}px`
+      el.appendChild(s)
+    })
+  }
+  ['bc1', 'bc2', 'bc3', 'bc4'].forEach(makeBarcode)
+
+  const grid = document.getElementById('contribGrid')
+  const lvls = [0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 4]
+  for (let w = 0; w < 52; w++) {
+    const col = document.createElement('div'); col.className = 'cw'
+    for (let d = 0; d < 7; d++) {
+      const cell = document.createElement('div')
+      cell.className = 'cd' + (lvls[Math.floor(Math.random() * lvls.length)] ? ' l' + lvls[Math.floor(Math.random() * lvls.length)] : '')
+      col.appendChild(cell)
+    }; grid.appendChild(col)
+  }
+  const langs = [{ c: '#c85015', w: 40 }, { c: '#00c4b4', w: 25 }, { c: '#f5e642', w: 20 }, { c: '#888', w: 15 }]
+  const lbar = document.getElementById('langBar')
+  langs.forEach(l => { const seg = document.createElement('div'); seg.className = 'lang-seg'; seg.style.cssText = `background:${l.c};flex:${l.w}`; lbar.appendChild(seg) })
+
+  const obs = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis') }) }, { threshold: .12 })
+  document.querySelectorAll('.rev').forEach(el => obs.observe(el))
+
+  let logoClicks = 0, logoTimer
+  function logoClick() {
+    logoClicks++; clearTimeout(logoTimer); logoTimer = setTimeout(() => logoClicks = 0, 1800)
+    if (logoClicks === 3) showToast(`${5 - logoClicks} more...`)
+    if (logoClicks >= 5) { logoClicks = 0; triggerMatrix() }
+  }
+
+  const KONAMI = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; let ki = 0
+  document.addEventListener('keydown', e => {
+    ki = e.keyCode === KONAMI[ki] ? ki + 1 : 0
+    if (ki === KONAMI.length) { ki = 0; triggerMatrix() }
+  })
+  document.getElementById('konamiHint').addEventListener('click', () => {
+    showToast('keyboard: ↑↑↓↓←→←→B A  (arrow keys + B + A)')
+    document.getElementById('konamiHint').style.color = 'var(--amber)'
+  })
+
+  function triggerMatrix() {
+    const m = document.getElementById('matrix'), c = document.getElementById('matCanvas')
+    m.classList.add('show'); m.style.pointerEvents = 'all'
+    c.width = window.innerWidth; c.height = window.innerHeight
+    const ctx = c.getContext('2d'); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, c.width, c.height)
+    const cols = Math.floor(c.width / 14); const drops = Array(cols).fill(1)
+    const chars = '01BLOCKCHAIN0x4fManasviDEFABC'.split('')
+    let frames = 0
+    const mat = setInterval(() => {
+      frames++; ctx.fillStyle = 'rgba(0,0,0,0.05)'; ctx.fillRect(0, 0, c.width, c.height)
+      ctx.font = '13px monospace'
+      drops.forEach((y, i) => {
+        ctx.fillStyle = i % 3 === 0 ? '#c85015' : '#00c4b4'
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * 14, y * 14)
+        if (y * 14 > c.height && Math.random() > .97) drops[i] = 0; drops[i]++
+      })
+      if (frames > 220) { clearInterval(mat); m.classList.remove('show'); m.style.pointerEvents = 'none' }
+    }, 33)
+    showToast('easter egg found.')
+  }
+
+  let idleTimer
+  function resetIdle() {
+    clearTimeout(idleTimer)
+    document.getElementById('screensaver').classList.remove('on')
+    idleTimer = setTimeout(() => document.getElementById('screensaver').classList.add('on'), 60000)
+  }
+  ['keydown', 'scroll', 'click'].forEach(ev => document.addEventListener(ev, resetIdle))
+  resetIdle()
+</script>
+</body>
+
+</html>
