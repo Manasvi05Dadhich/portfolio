@@ -1190,58 +1190,42 @@
   }
 
   .track-link-btn {
-    font-family: var(--mono);
-    font-size: 8.5px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: rgba(245, 240, 235, .3);
-    background: transparent;
-    border: 1px dashed rgba(245, 240, 235, .12);
-    padding: 4px 10px;
-    border-radius: 2px;
+    color: rgba(245, 240, 235, .25);
+    background: none;
+    border: none;
+    padding: 4px;
     text-decoration: none;
     cursor: none;
-    transition: all .22s ease;
+    transition: color .2s ease, transform .2s ease;
     display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap
+    align-items: center
   }
 
   .track-link-btn:hover {
-    border-color: var(--amber);
     color: var(--amber);
-    background: rgba(200, 80, 21, .08)
+    transform: scale(1.15)
   }
 
   .track-link-btn.live-btn:hover {
-    border-color: var(--electric);
-    color: var(--electric);
-    background: rgba(0, 196, 180, .08)
+    color: var(--electric)
   }
 
   .track-link-btn svg {
-    width: 11px;
-    height: 11px;
-    fill: currentColor;
-    flex-shrink: 0
+    width: 14px;
+    height: 14px;
+    fill: currentColor
   }
 
   .track:hover .track-link-btn {
-    color: rgba(245, 240, 235, .45);
-    border-color: rgba(245, 240, 235, .2)
+    color: rgba(245, 240, 235, .4)
   }
 
   .track:hover .track-link-btn:hover {
-    border-color: var(--amber);
-    color: var(--amber);
-    background: rgba(200, 80, 21, .08)
+    color: var(--amber)
   }
 
   .track:hover .track-link-btn.live-btn:hover {
-    border-color: var(--electric);
-    color: var(--electric);
-    background: rgba(0, 196, 180, .08)
+    color: var(--electric)
   }
 
   .track.secret .track-links {
@@ -1841,12 +1825,6 @@
       font-size: 64px
     }
 
-    .track-link-btn {
-      padding: 4px 7px;
-      font-size: 0;
-      gap: 0
-    }
-
     .track-link-btn svg {
       width: 13px;
       height: 13px
@@ -2313,22 +2291,20 @@
     document.getElementById('termTrigger').addEventListener('click', openTerm)
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTerm() })
     const projects = [
-      { n: '01', name: 'DarkEarn', stack: 'ZK · Stealth · Solidity · Base', dur: '4:48', github: 'https://github.com/Manasvi05Dadhich/DarkEarn', live: 'https://darkearn-ethmumbai-2026-kzbalph3w.vercel.app/', video: '' },
-      { n: '02', name: 'OneWipe Microservice', stack: 'Blockchain · Certs · React', dur: '3:12', github: 'https://github.com/Manasvi05Dadhich/onewipe-mircoservice', live: '', video: '' },
-      { n: '03', name: 'SnapSync', stack: 'React · Vite · Framer', dur: '2:47', github: 'https://github.com/Manasvi05Dadhich/SnapSync', live: '', video: '' },
-      { n: '04', name: 'StabilityNet', stack: 'Hardhat · Wagmi · Next.js', dur: '3:31', github: 'https://github.com/Manasvi05Dadhich/StabilityNet', live: '', video: '' },
+      { n: '01', name: 'DarkEarn', stack: 'ZK · Stealth · Solidity · Base', dur: '4:48', github: 'https://github.com/Manasvi05Dadhich/DarkEarn', live: 'https://darkearn-ethmumbai-2026-kzbalph3w.vercel.app/' },
+      { n: '02', name: 'OneWipe Microservice', stack: 'Blockchain · Certs · React', dur: '3:12', github: 'https://github.com/Manasvi05Dadhich/onewipe-mircoservice', live: '' },
+      { n: '03', name: 'SnapSync', stack: 'React · Vite · Framer', dur: '2:47', github: 'https://github.com/Manasvi05Dadhich/SnapSync', live: '' },
+      { n: '04', name: 'StabilityNet', stack: 'Hardhat · Wagmi · Next.js', dur: '3:31', github: 'https://github.com/Manasvi05Dadhich/StabilityNet', live: '' },
       { n: '05', name: '???', stack: 'still building...', dur: '?:??', secret: true },
     ]
     const tCont = document.getElementById('tracks')
     const ghIcon = `<svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`
     const liveIcon = `<svg viewBox="0 0 16 16"><path d="M4.5 2A2.5 2.5 0 002 4.5v7A2.5 2.5 0 004.5 14h7a2.5 2.5 0 002.5-2.5v-3a.5.5 0 00-1 0v3a1.5 1.5 0 01-1.5 1.5h-7A1.5 1.5 0 013 11.5v-7A1.5 1.5 0 014.5 3h3a.5.5 0 000-1h-3z"/><path d="M9 2.5a.5.5 0 01.5-.5h4a.5.5 0 01.5.5v4a.5.5 0 01-1 0V3.707L8.354 8.354a.5.5 0 11-.708-.708L12.293 3H9.5a.5.5 0 01-.5-.5z"/></svg>`
-    const videoIcon = `<svg viewBox="0 0 16 16"><path d="M2.5 3A1.5 1.5 0 001 4.5v7A1.5 1.5 0 002.5 13h8A1.5 1.5 0 0012 11.5v-1.55l2.4 1.8a.5.5 0 00.8-.4V4.65a.5.5 0 00-.8-.4L12 6.05V4.5A1.5 1.5 0 0010.5 3h-8zM2 4.5a.5.5 0 01.5-.5h8a.5.5 0 01.5.5v7a.5.5 0 01-.5.5h-8a.5.5 0 01-.5-.5v-7z"/></svg>`
     projects.forEach((p, i) => {
       const d = document.createElement('div'); d.className = 'track' + (p.secret ? ' secret' : '')
       let linksHtml = '<div class="track-links">'
-      if (p.github) linksHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="track-link-btn" onclick="event.stopPropagation()" title="GitHub">${ghIcon} github</a>`
-      if (p.live) linksHtml += `<a href="${p.live}" target="_blank" rel="noopener" class="track-link-btn live-btn" onclick="event.stopPropagation()" title="Live Demo">${liveIcon} live</a>`
-      if (p.video) linksHtml += `<a href="${p.video}" target="_blank" rel="noopener" class="track-link-btn live-btn" onclick="event.stopPropagation()" title="Video Demo">${videoIcon} video</a>`
+      if (p.github) linksHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="track-link-btn" onclick="event.stopPropagation()" title="GitHub">${ghIcon}</a>`
+      if (p.live) linksHtml += `<a href="${p.live}" target="_blank" rel="noopener" class="track-link-btn live-btn" onclick="event.stopPropagation()" title="Live Demo">${liveIcon}</a>`
       linksHtml += '</div>'
       d.innerHTML = `<div class="track-n">${p.n}</div>
     <div class="track-info"><div class="track-name">${p.name}</div><div class="track-stack">${p.stack}</div></div>
