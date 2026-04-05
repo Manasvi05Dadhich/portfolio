@@ -2159,7 +2159,7 @@
           <div class="receipt-addr">WEB DEVELOPMENT · COMPLETED</div>
           <hr class="receipt-div">
           <div class="receipt-line"><span class="rk">Type</span><span class="rv">Web Developer</span></div>
-          <div class="receipt-line"><span class="rk">Stack</span><span class="rv">MERN Stack</span></div>
+          <div class="receipt-line"><span class="rk">Stack</span><span class="rv">MERN</span></div>
           <div class="receipt-line"><span class="rk">Clients</span><span class="rv">Local Business</span></div>
           <hr class="receipt-div">
           <div class="receipt-total"><span class="rt-k">MODE</span><span class="rt-v">ACTIVE</span></div>
@@ -2304,7 +2304,7 @@
       const d = document.createElement('div'); d.className = 'track' + (p.secret ? ' secret' : '')
       let linksHtml = '<div class="track-links">'
       if (p.github) linksHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="track-link-btn" onclick="event.stopPropagation()" title="GitHub">${ghIcon}</a>`
-      if (p.live) linksHtml += `<a href="${p.live}" target="_blank" rel="noopener" class="track-link-btn live-btn" onclick="event.stopPropagation()" title="Live Demo">${liveIcon}</a>`
+      if (!p.secret) linksHtml += `<a href="${p.live || '#'}" target="${p.live ? '_blank' : '_self'}" rel="noopener" class="track-link-btn live-btn" onclick="event.stopPropagation()" title="Live Demo">${liveIcon}</a>`
       linksHtml += '</div>'
       d.innerHTML = `<div class="track-n">${p.n}</div>
     <div class="track-info"><div class="track-name">${p.name}</div><div class="track-stack">${p.stack}</div></div>
