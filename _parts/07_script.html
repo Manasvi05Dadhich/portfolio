@@ -116,13 +116,6 @@
   }
   setTimeout(drawCircles, 400)
 
-  const projects = [
-    { n: '01', name: 'DarkEarn', stack: 'ZK · Stealth · Solidity · Base', dur: '4:48', link: '#' },
-    { n: '02', name: 'OneWipe Microservice', stack: 'Blockchain · Certs · React', dur: '3:12', link: '#' },
-    { n: '03', name: 'Snapsync', stack: 'React · Vite · Framer', dur: '2:47', link: '#' },
-    { n: '04', name: 'Web3 Starter Kit', stack: 'Hardhat · Wagmi · Next.js', dur: '3:31', link: '#' },
-    { n: '05', name: '???', stack: 'still building...', dur: '?:??', link: '#', secret: true },
-  ]
   const tCont = document.getElementById('tracks')
   projects.forEach((p, i) => {
     const d = document.createElement('div'); d.className = 'track' + (p.secret ? ' secret' : '')
